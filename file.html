@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style> 
+        h1{
+          text-align: center;
+          color: #b0d5ff;
+        }
+        #map { height: 400px;
+          display:inline-block;
+        width: 100%; }
+        #texte{
+
+          background-color : #b0d5ff;          text-align: center;
+        }
+        #texte1{
+          background-color:   #f5464f;
+          text-align: center;
+        }
+        #texte2{
+          background-color:   #f5aa1f;
+          text-align: center;
+        }
+        #texte3{
+          background-color:   #00d300;
+          text-align: center;
+        }
+        .p1{
+          text-align: right;
+          background-color: rgb(21, 136, 243);
+        }
+       #new{
+        float:right;
+    margin-right:5px;
+    margin-top: 6px;
+    overflow:auto;
+    text-align:"right";
+    width: 100%;
+        }
+      #tb{
+    /*display:inline-block;
+    overflow:auto;*/
+    border: 1px solid orange;
+    text-align: center;
+        }
+
+
+        </style>
+        
+       
+
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+    crossorigin=""/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+       <!-- Favicon -->
+       <link href="img/favicon.ico" rel="icon">
+
+       <!-- Google Web Fonts -->
+       <link rel="preconnect" href="https://fonts.gstatic.com">
+       <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"> 
+   
+       <!-- Icon Font Stylesheet -->
+       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+       <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+       <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
+   
+       <!-- Libraries Stylesheet -->
+       <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+       <link href="lib/animate/animate.min.css" rel="stylesheet">
+   
+       <!-- Customized Bootstrap Stylesheet -->
+       <link href="css/bootstrap.min.css" rel="stylesheet">
+   
+       <!-- Template Stylesheet -->
+       <link href="css/style.css" rel="stylesheet">
+   <!--ajout de jQuery-->
+ <script src="jquery-3.6.3.min.js"></script>
+</head>
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+     crossorigin=""></script>
+
+
+
+        <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm py-3 py-lg-0 px-3 px-lg-0">
+      <a href="index.html" class="navbar-brand ms-lg-5">
+         <!-- <h1 class="display-5 m-0 text-primary">Safe<span class="text-secondary">Cam</span></h1>-->
+         <!-- crousel 1-->
+        <div> <img src="img/best1.png" class ="img"> </div>
+
+          
+         
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+          <div class="navbar-nav ms-auto py-0">
+             <div class="img"><h1 class="display-5 m-0 text-primary" >MY<span class="text-secondary">Security</span></h1></div> 
+             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+              <a href="index.html" class="nav-item nav-link active">Accueil</a>
+              <a href="blog.html" class="nav-item nav-link">Service</a>
+              <a href="contact.html" class="nav-item nav-link">Ecrivez pour nous</a>
+             
+              </div>
+          </div>
+          <a href="contact1.html" class="nav-item nav-link">Contact</a>
+          <a href="tel:+216 71 426 496" class="nav-item nav-link nav-contact bg-secondary text-white px-5 ms-lg-5"><i class="bi bi-telephone-outbound me-2"></i>+216 71 426 496</a>
+      </div>
+      </div>
+  </nav>
+  <!-- Navbar End -->
+        
+
+<h1> Tester votre Région </h1>
+
+
+
+  
+<div id="map" ></div>
+
+<div id="new">
+
+</div>
+<!--table id="tb">
+<tr>
+  <td  class="col-6" id="texte1" ><p >dangeureuse</p></td>
+  </tr>
+  <tr>
+  <td id="texte2" class="col-6" class="row g-2"><p >moyenne</p></td>
+</tr><tr>
+  <td id="texte3" class="col-6" class="row g-2"><p >bbb</p></td>
+</tr>
+</table-->
+<div id="div1"></div>
+<table>
+<div class="col-6" id="div"  class="row g-3">
+  <tr>
+    <td> <input type="text" placeholder="votre code postal" id="texte" class="form-control border-1 px-3"> </td>
+    <td>  <button id="btn" class="btn btn-outline-primary">valider</button>
+</td>
+<td><select  id="l" class="form-select">
+  <option> Sélectionner votre région</option>
+ 
+</select></td>
+
+  </tr>
+
+</div>
+</table>
+
+
+<script src="front.js"></script>
+ <!-- Footer Start -->
+ <div class="container-fluid bg-dark text-light mt-5 py-5 wow fadeInUp" data-wow-delay="0.1s">
+  <div class="container pt-5">
+      <div class="row g-5">
+         
+          <div class="col-lg-3 col-md-6">
+              <div class="d-flex flex-column justify-content-start">
+                  <h3 class="text-white mb-4">CONTACTER NOUS</h3>
+                  <p class="mb-2"><i class="bi bi-geo-alt text-primary me-2"></i>30 Avenue Habib Bourguiba 2033 Megrine BEN AROUS TUNISIE</p>
+                  <p class="mb-2"><i class="bi bi-envelope-open text-primary me-2"></i>	contact@bestsequrite.com</p>
+                  <p class="mb-0"><i class="bi bi-telephone text-primary me-2"></i>(+216) 71 297 475 / (+216) 71 426 496</p>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+              
+              <div class="d-flex flex-column justify-content-start">
+                  
+              </div>
+          </div>
+         
+          <div class="col-lg-3 col-md-6">
+              <div class="d-flex flex-column justify-content-start"></div>
+              <h3 class="text-white mb-4">Retrouvez-nous sur le web :</h3>
+              <div class="d-flex">
+                  <a class="btn btn-lg btn-primary btn-lg-square rounded me-2" href="#"><i class="fab fa-twitter fw-normal"></i></a>
+                  <a class="btn btn-lg btn-primary btn-lg-square rounded me-2" href="#"><i class="fab fa-facebook-f fw-normal"></i></a>
+                  <a class="btn btn-lg btn-primary btn-lg-square rounded me-2" href="#"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                  <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-instagram fw-normal"></i></a>
+              </div>
+          </div>
+          <div class="col-12">
+            <form class="mx-auto" style="max-width: 600px;" method="post" action="avis.php">
+              <div class="input-group">
+                  <input type="text" class="form-control border-white p-3" placeholder="Votre Avis" name="inp" required >
+                      <button class="btn btn-primary px-4">Envoyer</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
+<div class="container-fluid bg-primary text-light py-4">
+  <div class="container">
+      <div class="row g-5">
+          <div class=" text-center text-md-start">
+              <p >B.E.S.T SECURITY : 30 Avenue Habib Bourguiba 2033 Megrine - Ben Arous - TUNISIE -Tél : (+216) 71 297 151 / (+216) 71 426 496 - Fax : (+216) 71 425 848</p>
+          </div>
+          <!--div class="col-md-6 text-center text-md-end">
+              <p class="mb-0">Designed by <a class="text-white border-bottom" href="https://htmlcodex.com">HTML Codex</a></p>
+          </div-->
+      </div>
+  </div>
+</div>
+<!-- Footer End -->
+</body>
+</html>
